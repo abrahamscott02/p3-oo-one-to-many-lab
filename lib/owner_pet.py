@@ -8,7 +8,7 @@ class Pet:
         self.owner = owner
 
         if pet_type not in Pet.PET_TYPES:
-            raise Exception(f"Invalid pet type: {pet_type}. Must be one of {Pet.PET_TYPES}")
+            raise Exception("pet_type is not in PET_TYPES")
 
         Pet.all.append(self)
 
@@ -21,13 +21,27 @@ class Owner:
 
     def add_pet(self, pet):
         if not isinstance(pet, Pet):
-            raise TypeError("The pet must be in an instance of Pet.")
+            raise TypeError("Th pet must be an instance of Pet.")
 
         pet.owner = self
 
     def get_sorted_pets(self):
-        # Retrieve pets owned by this owner and sort them by name
         return sorted(self.pets(), key=lambda pet: pet.name)
 
-    def __str__(self):
-        return f"Owner(name={self.name})"
+
+
+
+
+
+#     @classmethod
+#     def otherMethod(cls):
+#         x = cls("Joe")
+#         print("Hello owners")
+
+# o = Owner("Bob")
+
+# # o = Owner()
+# # o.__init__("Bob")
+
+# o.myMethod()
+# Owner.otherMethod()
